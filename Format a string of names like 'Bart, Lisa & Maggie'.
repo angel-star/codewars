@@ -1,0 +1,62 @@
+Given: an array containing hashes of names
+
+Return: a string formatted as a list of names separated by commas except for the last two names, which should be separated by an ampersand.
+
+Example:
+
+namelist([ {'name': 'Bart'}, {'name': 'Lisa'}, {'name': 'Maggie'} ])
+# returns 'Bart, Lisa & Maggie'
+
+namelist([ {'name': 'Bart'}, {'name': 'Lisa'} ])
+# returns 'Bart & Lisa'
+
+namelist([ {'name': 'Bart'} ])
+# returns 'Bart'
+
+namelist([])
+# returns ''
+Note: all the hashes are pre-validated and will only contain A-Z, a-z, '-' and '.'.
+
+————————————————————————————————————————————————————
+Solution:
+
+def namelist(names):
+    
+    #your code here
+    
+————————————————————————————————————————————————————
+
+
+Example Tests:
+
+Test.assert_equals(namelist([{'name': 'Bart'},{'name': 'Lisa'},{'name': 'Maggie'},{'name': 'Homer'},{'name': 'Marge'}]), 'Bart, Lisa, Maggie, Homer & Marge',
+"Must work with many names")
+Test.assert_equals(namelist([{'name': 'Bart'},{'name': 'Lisa'},{'name': 'Maggie'}]), 'Bart, Lisa & Maggie',
+"Must work with many names")
+Test.assert_equals(namelist([{'name': 'Bart'},{'name': 'Lisa'}]), 'Bart & Lisa', 
+"Must work with two names")
+Test.assert_equals(namelist([{'name': 'Bart'}]), 'Bart', "Wrong output for a single name")
+Test.assert_equals(namelist([]), '', "Must work with no names")
+
+————————————————————————————————————————————————————
+
+首先我的思路是判断长度 0 1 2 3和3以上这几种 但是太傻了
+
+那么其次的思路就是用逗号来给它们都分割开，然后把最后一个逗号替换成& 
+
+然后的思路就是用' & '.join 这种 然后判断最后一个name的长度 来进行切片修改 但是这样也比较弱智
+
+那么能想到的最好的方法就应该是
+
+
+self.ziduan = ['linkman', 'telephone', 'crawler_time', 'data_source', 'url', 'city', 'district', 'scope','location']
+self.seq = ['"', '"', '', '"', '"', '"', '"', '"', '"']
+
+        
+sql = "insert into house.house_sale_jingjiren ({}) values ({})".format(
+                        ",".join([item for item in self.ziduan]),
+                        ",".join([j + house_dict[i] + j for j, i in zip(self.seq, self.ziduan)]))
+
+类似这种用法的 zip   
+
+    
