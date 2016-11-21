@@ -66,3 +66,32 @@ def is_square(n):
 
 
 
+______________________________________________________________
+2016年11月21日14:32:54
+
+更新两个答案
+
+1.
+from math import sqrt
+
+def is_square(n):
+    return n > 0 and sqrt(n).is_integer()
+    
+2.
+def is_square(n):  
+    return n>0 and (n**0.5).is_integer()
+    
+这两个本质上是差不多的   
+
+3.
+import math
+def is_square(n):
+    return n > -1 and math.sqrt(n) % 1 == 0;
+
+4.
+is_square = lambda n: n > 0 and int(float(n) ** 0.5) ** 2 == n
+
+lambda表达式一定要用好 上面就是一个例子
+
+    
+
