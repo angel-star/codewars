@@ -59,4 +59,65 @@ sql = "insert into house.house_sale_jingjiren ({}) values ({})".format(
 
 类似这种用法的 zip   
 
+——————————————————————————————————————————————————————————————————、
+2016年11月22日10:25:06
+
+zip的方法先不管    现在的思路是把这个所有都换成& 然后把除了最后一个都换成，
+
+所以现在的方法是这样的
+
+import re
+def namelist(names):
+    kong = []
+    for x in range(len(names)):
+        kong.append(names[x]['name'])
+    zuizhong = '& '.join(kong)
+    return re.sub('&', ',' ,zuizhong,len(names)-2)
+    #your code here
     
+但是问题就是
+Must work with many names: 'Bart, Lisa, Maggie, Homer& Marge' should equal 'Bart, Lisa, Maggie, Homer & Marge'
+
+而且放下这个错误不管 这个可以换成replace 因为没有-1这个功能 所以只能先&后， （仔细理解） 
+    
+def namelist(names):
+    kong = []
+    for x in range(len(names)):
+        kong.append(names[x]['name'])
+    zuizhong = '& '.join(kong)
+    return zuizhong.replace('&', ',' ,len(names)-2)
+    #your code here
+    
+    
+这时再回头看这个代码  应该这样做
+
+def namelist(names):
+    kong = []
+    for x in range(len(names)):
+        kong.append(names[x]['name'])
+    zuizhong = ' & '.join(kong)
+    return zuizhong.replace(' &', ',' ,len(names)-2)
+    #your code here
+    
+改成这样   通过 
+
+
+最后看到里面有这两种答案 
+
+def namelist(names):
+    if len(names) > 1:
+        return '{} & {}'.format(', '.join(name['name'] for name in names[:-1]), 
+                                names[-1]['name'])
+    elif names:
+        return names[0]['name']
+    else:
+        return ''
+        
+———————————————————————————————————————————————
+def namelist(names):
+    if len(names)==0: return ''
+    if len(names)==1: return names[0]['name']
+    return ', '.join([n['name'] for n in names[:-1]]) + ' & ' + names[-1]['name']
+    
+
+思路差不多 可以看
