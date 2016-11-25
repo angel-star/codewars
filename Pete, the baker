@@ -59,4 +59,4 @@ def cakes(recipe, available):
   return min(available.get(k, 0) // v for k,v in recipe.iteritems())
   
   
-要好好用get（key，0）  这个命令。
+要好好用get（key，0）  这个命令
