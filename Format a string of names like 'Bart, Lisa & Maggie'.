@@ -67,6 +67,7 @@ zip的方法先不管    现在的思路是把这个所有都换成& 然后把�
 所以现在的方法是这样的
 
 import re
+#正则
 def namelist(names):
     kong = []
     for x in range(len(names)):
@@ -121,3 +122,21 @@ def namelist(names):
     
 
 思路差不多 可以看
+
+
+
+
+re.sub?
+Signature: re.sub(pattern, repl, string, count=0, flags=0)
+Docstring:
+Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl.  repl can be either a string or a callable; if a string, backslash escapes in it are processed.  If it is a callable, it's passed the match object and must return a replacement string to be used.
+File:      f:\winpython-32bit-2.7.10.3\python-2.7.10\lib\re.py
+Type:      function
+
+
+re.sub？
+签名：re.sub（pattern，repl，string，count = 0，flags = 0）
+Docstring：
+返回通过替换字符串中模式的最左边的不重叠的出现通过替换repl获得的字符串。 repl可以是字符串或可调用; 如果一个字符串，反斜杠转义在其中被处理。 如果它是一个可调用，它传递的匹配对象，并必须返回一个替换字符串使用。
+文件：f：\ winpython-32bit-2.7.10.3 \ python-2.7.10 \ lib \ re.py
+类型：函数
