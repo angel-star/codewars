@@ -67,3 +67,54 @@ public class Kata
         return "";
   }
 }}
+/*————————————————————————————————————————————————————————————————————————————————————————————————————————————*/
+//答案
+import java.util.HashMap;
+
+public class Kata
+{
+    private static final HashMap<Integer, String> digits;
+    static
+    {
+        digits = new HashMap<>();
+        digits.put(0, "Zero");
+        digits.put(1, "One");
+        digits.put(2, "Two");
+        digits.put(3, "Three");
+        digits.put(4, "Four");
+        digits.put(5, "Five");
+        digits.put(6, "Six");
+        digits.put(7, "Seven");
+        digits.put(8, "Eight");
+        digits.put(9, "Nine");
+    }
+
+    public static String switchItUp(int number)
+    {
+        return digits.get(number);
+    }
+}
+
+
+/*————————————————————————————————————————————————————————————————————————————————————————————————————————————*/
+//答案
+public class Kata
+{
+  public static String switchItUp(int number)
+  {
+     String[] words = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+     String word = words[number];
+     return word;
+  }
+}
+
+
+/*————————————————————————————————————————————————————————————————————————————————————————————————————————————*/
+//答案
+
+public class Kata{
+  public static String switchItUp(int number){
+    String[] names = {"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    return names[number];
+  }
+}
